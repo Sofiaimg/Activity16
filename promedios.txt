@@ -1,0 +1,12 @@
+David,  promedio 3.6
+Gonzalo,  promedio 5.25
+Mai,  promedio 9.5
+JP,  promedio 10.0
+David,  promedio 3.6
+Gonzalo,  promedio 5.25
+Mai,  promedio 9.5
+JP,  promedio 10.0
+David,  promedio 3.6
+Gonzalo,  promedio 5.25
+Mai,  promedio 9.5
+JP,  promedio 10.0
