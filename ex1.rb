@@ -22,22 +22,23 @@ def total_absence(filename)
   notas.each do |nota|
   abs = nota.split(", ").map(&:chomp)
   print abs[0] + "\t", abs.count('A').to_s + "\n" if abs.include?('A')
-  puts " "
   end
-  puts " "
 end
 
-def aprobados ()
-file = File.open('notas.csv', 'r')
-notas = file.readlines
-file.close
+def aprobados(filename, nota = 5)
 
-notas.each do |nota|
-  approved = nota.split(", ").map(&:chomp)
- print approved[0], "\t", promedio, "\n" if approved >= 5
+   students_info = File.open(filename, 'r').readlines
+
+   students_info.map do |info|
+     a = info.split(', ').map(&:chomp)
+     b = a[1..5].delete_if { |a| a == "A" }
+     grades = b.map(&:to_f)
+     suma = grades.inject(0) { |sum, g| sum + g }
+     avg = suma / grades.length
+     puts "#{a[0]}, #{avg}" if avg >= nota
+
 end
 end
-
 
 puts 'Registro de notas'
 option = 0
@@ -55,7 +56,9 @@ while option != 4
        when 2
          total_absence('notas.csv')
        when 3
-         approves(average)####????
+         puts "Ingrese una nota como numero"
+         nota = gets.chomp.to_f
+         aprobados('notas.csv')
        when 4
          puts 'Cerrando...'
          exit(0)
